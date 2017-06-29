@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
     s.author           = { 'Destiny' => '346276712@qq.com' }
     s.source           = { :git => 'https://github.com/destinyzhao/SISTabBar.git', :tag => s.version.to_s }
     s.ios.deployment_target = '8.0'
-    s.source_files = 'SISScollViewControl/**/*.{h,m}'
+    s.source_files = 'SISTabBar/**/*.{h,m}'
 
 end
