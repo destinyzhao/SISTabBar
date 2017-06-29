@@ -2,28 +2,12 @@
 custom TabBar
 
 Podfile
+
 pod 'SISTabBar'
 
-使用方法
-+ (instancetype)sharedTabBar
-{
-    static SetupTabBar *_tabBar;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _tabBar = [[SetupTabBar alloc]init];
-    });
-    return _tabBar;
-}
+主要代码
 
-- (NSMutableArray *)viewControllersArray
-{
-    if (!_viewControllersArray) {
-        _viewControllersArray = [NSMutableArray array];
-    }
-    return _viewControllersArray;
-}
-
-/**
+```/**
  *  添加所有的子控制器
  */
 - (void)setupViewControllers
@@ -98,3 +82,4 @@ pod 'SISTabBar'
 {
     NSLog(@"TabBarItem Selected%ld",index);
 }
+```
