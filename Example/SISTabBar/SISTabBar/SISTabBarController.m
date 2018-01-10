@@ -10,6 +10,8 @@
 #import "SISTabBarItem.h"
 
 #define ColorForTabBar(r, g, b)   [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
+// 适配iPhone x TabBar 底栏高度
+#define TabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
 
 static dispatch_once_t onceToken;
 static SISTabBarController *_tabBarController;
@@ -115,7 +117,9 @@ static SISTabBarController *_tabBarController;
  */
 - (void)setUpTabbar
 {
-    SISTabBar *tabBar = [[SISTabBar alloc] initWithFrame:self.tabBar.bounds];
+    CGRect rect = self.tabBar.bounds;
+    rect.size.height = TabBarHeight;
+    SISTabBar *tabBar = [[SISTabBar alloc] initWithFrame:rect];
     tabBar.delegate = self;
     [self.tabBar addSubview:tabBar];
     

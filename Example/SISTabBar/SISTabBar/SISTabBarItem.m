@@ -9,6 +9,8 @@
 #import "SISTabBarItem.h"
 #import "SISTabBarBadge.h"
 
+#define IphoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
 static CGFloat const kImageRatio = 0.7;
 
 @interface SISTabBarItem ()
@@ -110,7 +112,9 @@ static CGFloat const kImageRatio = 0.7;
 #pragma mark 返回按钮内部titlelabel的边框
 -(CGRect)titleRectForContentRect:(CGRect)contentRect
 {
-    return CGRectMake(0, contentRect.size.height * kImageRatio - 5, contentRect.size.width, contentRect.size.height-contentRect.size.height*kImageRatio);
+    CGFloat originOffset = IphoneX?20:5;
+    
+    return CGRectMake(0, contentRect.size.height * kImageRatio - originOffset, contentRect.size.width, contentRect.size.height-contentRect.size.height*kImageRatio);
 }
 
 #pragma mark 返回按钮内部UIImage的边框
